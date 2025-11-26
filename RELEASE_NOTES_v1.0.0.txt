@@ -1,0 +1,65 @@
+# AOI2List v1.0.0 – Initial Public Release
+
+AOI2List is a tool for locating and downloading USGS LiDAR LAZ tiles using a simple Area of Interest (AOI).  
+This release includes both CLI and GUI tools, plus a packaged macOS application.
+
+---
+
+## Included in this Release
+
+### ✔ GUI Features
+- Tile discovery via ScienceBase
+- Tile selection window
+- Multithreaded download engine
+- Progress bar & speed display
+- Cancel + retry logic
+- Save-selected-to-file
+
+### ✔ CLI Features
+- Simple AOI → tile URL list generator
+
+### ✔ macOS App
+- Custom icon  
+- Metadata bundle (version, author, identifier)  
+- Fast startup  
+
+### ✔ Project Files
+- `src/` Python scripts  
+- `assets/` icons and image files  
+- `AOI2List.spec` build metadata  
+- Custom non-commercial license  
+- Documentation and README  
+
+---
+
+## Download
+
+👉 **AOI2List.app** (macOS)  
+(Upload your ZIP here in GitHub Releases)
+
+Source code included in this repository.
+
+---
+
+## macOS Notes
+
+If macOS shows “unidentified developer” on first run:
+
+1. Right-click the app  
+2. Click **Open**  
+3. Click **Open** again  
+
+This only needs to be done once.
+
+---
+
+## License
+
+Free for personal and educational use.  
+Commercial use requires permission.
+
+Contact: `billyjackrootbeer (at sign) gmail (dot) com`
+
+---
+
+Enjoy using AOI2List!
