@@ -1,145 +1,169 @@
 # AOI2List – USGS LiDAR AOI Tile Finder & LAZ Downloader
 
-**Developer:** Bill Fleming (TechBill)
-**Contact:** `billyjackrootbeer (at sign) gmail (dot) com`
-**Donations:** https://www.paypal.com/paypalme/techbill
+<p align="center">
+  <img src="assets/icon_preview.png" width="140" alt="AOI2List Icon"/>
+</p>
 
-AOI2List is a Python tool for locating and downloading USGS LiDAR LAZ tiles
-from ScienceBase using a simple Area-Of-Interest (AOI) defined by latitude,
-longitude, and square miles.
+**Developer:** Bill Fleming (TechBill)  
+**Contact:** `billyjackrootbeer (at sign) gmail (dot) com`  
+**Donations:** https://www.paypal.com/paypalme/techbill  
 
-There are two components:
+---
 
-- `aoi2list.py` — Command-line tool for generating a text list of LAZ URLs
-- `aoi2list_gui.py` — Graphical interface (Tkinter) for selecting and downloading tiles
+## Badges
+
+![Python](https://img.shields.io/badge/Python-3.12-blue)
+![Platform](https://img.shields.io/badge/Platform-macOS-lightgrey)
+![License](https://img.shields.io/badge/License-Custom%20Non--Commercial-green)
+![Status](https://img.shields.io/badge/Release-v1.0.0-brightgreen)
+
+---
+
+## Overview
+
+AOI2List is a cross-platform tool for locating and downloading USGS LiDAR LAZ tiles using a user-defined Area of Interest (AOI).  
+It includes a command-line interface (CLI) and a full graphical interface (GUI) with tile selection and a multithreaded downloader.
 
 ---
 
 ## Features
 
-- AOI defined as a square area centered on given coordinates
-- Queries USGS ScienceBase for matching LiDAR tiles
-- Tile metadata: tile ID, bounding box, flight date
-- GUI includes:
-  - Tile selection checkboxes
-  - Save URL list to a `.txt` file
-  - Direct LAZ downloads with progress bar, speed display, retry logic, and cancel button
-- CLI generates a simple URL list suitable for batch downloading
+- AOI-based search for USGS LiDAR LAZ tiles  
+- CLI (`aoi2list.py`) and GUI (`aoi2list_gui.py`)  
+- Tile sorting and metadata extraction  
+- Tile selection window in GUI  
+- Save selected LAZ URLs to text file  
+- Multi-file threaded downloader with:
+  - Progress bar  
+  - Download speed display  
+  - Retry logic  
+  - Cancel button  
+- Fully packaged macOS `.app` bundle  
+- Custom icon and bundle metadata via PyInstaller
+
+---
+
+## Screenshots
+
+> Add your screenshots to `assets/` and rename accordingly.
+
+```
+![AOI2List GUI](assets/screenshot_gui.png)
+![Tile Selection](assets/screenshot_tiles.png)
+```
+
+---
+
+## Project Structure
+
+```
+src/
+    aoi2list.py
+    aoi2list_gui.py
+
+assets/
+    AOI2List.icns
+    icon_preview.png
+    (optional screenshots)
+
+AOI2List.spec
+LICENSE
+README.md
+requirements.txt
+```
 
 ---
 
 ## Installation
 
-### 1. Install Python 3.8+
-Windows and macOS users can download Python from:
-https://www.python.org/downloads/
-
-### 2. Install Python dependencies
+Install Python dependencies:
 
 ```bash
-python -m pip install -r requirements.txt
+python3 -m pip install -r requirements.txt
 ```
 
-`requirements.txt` contains:
+Only dependency needed:
 
 ```
 requests>=2.0
 ```
 
-Tkinter is included automatically with Python on Windows/macOS.
+Tkinter is included with Python on macOS and Windows.
 
 ---
 
-## Command-line Usage (aoi2list.py)
-
-Example:
+## CLI Usage
 
 ```bash
-python aoi2list.py --lat 37.1 --lon -92.6 --sqmi 6 --out downloadlist.txt
+python3 src/aoi2list.py --lat 37.1 --lon -92.6 --sqmi 6 --out output.txt
 ```
-
-Arguments:
-
-| Flag     | Description                                    |
-|----------|------------------------------------------------|
-| --lat    | Center latitude (decimal)                      |
-| --lon    | Center longitude (decimal)                     |
-| --sqmi   | Square miles of AOI (must be > 0)              |
-| --out    | Output text file for URLs (default: downloadlist.txt) |
 
 ---
 
-## GUI Usage (aoi2list_gui.py)
-
-Run:
+## GUI Usage
 
 ```bash
-python aoi2list_gui.py
+python3 src/aoi2list_gui.py
 ```
-
-Steps:
-
-1. Enter **latitude**, **longitude**, **sq miles**
-2. Click **Find Tiles**
-3. A tile selection window opens:
-   - Check/uncheck tiles
-   - Save selected URLs to a `.txt`
-   - Or download selected `.laz` files
-
-During download:
-
-- Percent complete
-- MB downloaded
-- Speed (MB/s)
-- Cancel button
-- Automatic retry on failures
 
 ---
 
-## Building Standalone Apps with PyInstaller
+## macOS Application Build
 
-First install PyInstaller:
-
-```bash
-python -m pip install pyinstaller
-```
-
-### Windows
+### Using PyInstaller (simple method)
 
 ```bash
-pyinstaller --noconfirm --onefile --windowed aoi2list_gui.py
+python3 -m PyInstaller --clean --windowed     --icon assets/AOI2List.icns     --name AOI2List     src/aoi2list_gui.py
 ```
 
-### macOS
+Output appears in:
+
+```
+dist/AOI2List.app
+```
+
+### Recommended Metadata Build (using .spec)
 
 ```bash
-pyinstaller --noconfirm --onefile --windowed aoi2list_gui.py
+python3 -m PyInstaller --clean AOI2List.spec
 ```
 
-Optional custom name and icon:
+This includes:
 
-```bash
-pyinstaller --noconfirm --onefile --windowed   --name AOI2List   --icon aoi2list.icns   aoi2list_gui.py
-```
+- App version  
+- Bundle ID  
+- Author metadata  
+- Icon embedding  
+- Fully populated Info.plist  
+
+---
+
+## macOS App First Run
+
+If macOS warns about an unidentified developer:
+
+1. Right-click the app  
+2. Select **Open**  
+3. Click **Open** again  
+
+This needs to be done **only once**.
 
 ---
 
 ## License
 
-This project uses a **custom non-commercial software license**.
+This project is licensed under a custom **non-commercial license**.  
+Personal and educational use is allowed.  
+Commercial use requires permission from the developer.  
 
-- Free for personal, research, and educational use
-- Modification and redistribution allowed **with attribution**
-- **Commercial use requires permission** from the developer
-
-See the full text in the included **LICENSE** file.
+See `LICENSE` for full text.
 
 ---
 
 ## Support / Contact
 
-Questions, feedback, or bug reports:
+For issues or suggestions:  
 `billyjackrootbeer (at sign) gmail (dot) com`
 
-If this tool saves you time, donations are appreciated:
+If this tool helps you, consider donating:  
 https://www.paypal.com/paypalme/techbill
