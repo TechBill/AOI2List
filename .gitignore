@@ -1,0 +1,24 @@
+# Python cache
+__pycache__/
+*.pyc
+
+# Mac / OS artifacts
+.DS_Store
+
+# Build outputs
+build/
+dist/
+
+# Virtual environments
+venv/
+env/
+.venv/
+
+# PyInstaller temp
+*.manifest
+*.pkg
+*.bin
+*.dylib
+
+# Iconset temp
+*.iconset/
