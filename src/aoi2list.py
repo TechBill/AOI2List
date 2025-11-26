@@ -3,7 +3,9 @@
 AOI2List – USGS LiDAR AOI Tile Finder
 Developed by: Bill Fleming (TechBill)
 Contact: billyjackrootbeer (at sign) gmail (dot) com
-Donations: https://www.paypal.com/paypalme/techbill
+Donations: 
+https://www.paypal.com/paypalme/techbill
+https://www.buymeacoffee.com/techbill
 
 Description:
 ------------------------------------
