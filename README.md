@@ -45,12 +45,10 @@ It includes a command-line interface (CLI) and a full graphical interface (GUI) 
 
 ## Screenshots
 
-> Add your screenshots to `assets/` and rename accordingly.
 
-```
 ![AOI2List GUI](assets/screenshot_gui.png)
 ![Tile Selection](assets/screenshot_tiles.png)
-```
+
 
 ---
 
