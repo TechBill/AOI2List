@@ -34,8 +34,7 @@ This release includes both CLI and GUI tools, plus a packaged macOS application.
 
 ## Download
 
-👉 **AOI2List.app** (macOS)  
-(Upload your ZIP here in GitHub Releases)
+👉 [**AOI2List.app** (macOS) ](https://github.com/TechBill/AOI2List/releases/download/v1.0.0/AOI2List-macOS-v1.0.0.zip)
 
 Source code included in this repository.
 
