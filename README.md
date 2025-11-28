@@ -1,172 +1,117 @@
 # AOI2List – USGS LiDAR AOI Tile Finder & LAZ Downloader
 
-<p align="center">
-  <img src="assets/icon_preview.png" width="140" alt="AOI2List Icon"/>
-</p>
+Developer: Bill Fleming (TechBill)
+Contact: billyjackrootbeer (at sign) gmail (dot) com
 
-**Developer:** Bill Fleming (TechBill)  
-**Contact:** `billyjackrootbeer (at sign) gmail (dot) com`  
-**Donations:** 
-
-https://www.paypal.com/paypalme/techbill  
+Donations:
+https://www.paypal.com/paypalme/techbill
 https://www.buymeacoffee.com/techbill
-              
 
 ---
 
 ## Badges
 
-![Python](https://img.shields.io/badge/Python-3.12-blue)
-![Platform](https://img.shields.io/badge/Platform-macOS-lightgrey)
-![License](https://img.shields.io/badge/License-Custom%20Non--Commercial-green)
-![Status](https://img.shields.io/badge/Release-v1.0.0-brightgreen)
+Python 3.13  
+Platform: Windows | macOS  
+License: Custom Non-Commercial  
+Release: v1.0.0  
 
 ---
 
 ## Overview
 
 AOI2List is a cross-platform tool for locating and downloading USGS LiDAR LAZ tiles using a user-defined Area of Interest (AOI).  
-It includes a command-line interface (CLI) and a full graphical interface (GUI) with tile selection and a multithreaded downloader.
+It includes both a command-line interface (CLI) and a graphical interface (GUI) with tile selection, filtering, and a multithreaded download engine.
+
+AOI2List now provides native executables for both Windows and macOS.
 
 ---
 
 ## Features
 
 - AOI-based search for USGS LiDAR LAZ tiles  
-- CLI (`aoi2list.py`) and GUI (`aoi2list_gui.py`)  
+- CLI (aoi2list.py) and GUI (aoi2list_gui.py)  
 - Tile sorting and metadata extraction  
-- Tile selection window in GUI  
-- Save selected LAZ URLs to text file  
-- Multi-file threaded downloader with:
+- Tile selection interface in GUI  
+- Save selected URLs to file  
+- Multithreaded downloader with:
   - Progress bar  
-  - Download speed display  
+  - Download speed  
   - Retry logic  
   - Cancel button  
-- Fully packaged macOS `.app` bundle  
-- Custom icon and bundle metadata via PyInstaller
-
----
-
-## Screenshots
-
-
-![AOI2List GUI](assets/screenshot_gui.png)
-![Tile Selection](assets/screenshot_tiles.png)
-
+- Native Windows .exe build (standalone)  
+- macOS .app bundle with custom icon  
+- Cross-platform Python source  
+- Requires only Python + Tkinter when running from source
 
 ---
 
 ## Project Structure
 
-```
 src/
     aoi2list.py
     aoi2list_gui.py
 
 assets/
+    AOI2List.ico
     AOI2List.icns
     icon_preview.png
-    (optional screenshots)
 
-AOI2List.spec
-LICENSE
+requirements.txt  
+LICENSE  
 README.md
-requirements.txt
-```
 
 ---
 
-## Installation
+## Installation (Source Version)
 
-Install Python dependencies:
+pip install -r requirements.txt
 
-```bash
-python3 -m pip install -r requirements.txt
-```
-
-Only dependency needed:
-
-```
+Only dependency required:
 requests>=2.0
-```
 
-Tkinter is included with Python on macOS and Windows.
+Tkinter is included with Python on both macOS and Windows.
 
 ---
 
 ## CLI Usage
 
-```bash
-python3 src/aoi2list.py --lat 37.1 --lon -92.6 --sqmi 6 --out output.txt
-```
+python src/aoi2list.py --lat 37.1 --lon -92.6 --sqmi 6 --out output.txt
 
 ---
 
 ## GUI Usage
 
-```bash
-python3 src/aoi2list_gui.py
-```
+python src/aoi2list_gui.py
+
+---
+
+## Windows Executable Build
+
+pyinstaller --onefile --windowed --name AOI2List --icon=assets\AOI2List.ico src\aoi2list_gui.py
+
+Output:
+dist\AOI2List.exe
 
 ---
 
 ## macOS Application Build
 
-### Using PyInstaller (simple method)
+python3 -m PyInstaller --clean --windowed --icon assets/AOI2List.icns --name AOI2List src/aoi2list_gui.py
 
-```bash
-python3 -m PyInstaller --clean --windowed     --icon assets/AOI2List.icns     --name AOI2List     src/aoi2list_gui.py
-```
-
-Output appears in:
-
-```
+Output:
 dist/AOI2List.app
-```
-
-### Recommended Metadata Build (using .spec)
-
-```bash
-python3 -m PyInstaller --clean AOI2List.spec
-```
-
-This includes:
-
-- App version  
-- Bundle ID  
-- Author metadata  
-- Icon embedding  
-- Fully populated Info.plist  
-
----
-
-## macOS App First Run
-
-If macOS warns about an unidentified developer:
-
-1. Right-click the app  
-2. Select **Open**  
-3. Click **Open** again  
-
-This needs to be done **only once**.
 
 ---
 
 ## License
 
-This project is licensed under a custom **non-commercial license**.  
-Personal and educational use is allowed.  
-Commercial use requires permission from the developer.  
-
-See `LICENSE` for full text.
+Custom non-commercial license.  
+Personal and educational use allowed.  
+Commercial use requires permission.
 
 ---
 
 ## Support / Contact
 
-For issues or suggestions:  
-`billyjackrootbeer (at sign) gmail (dot) com`
-
-If this tool helps you, consider donating:  
-https://www.paypal.com/paypalme/techbill
-https://www.buymeacoffee.com/techbill
+billyjackrootbeer (at sign) gmail (dot) com
