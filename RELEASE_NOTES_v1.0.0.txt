@@ -1,64 +1,106 @@
-# AOI2List v1.0.0 – Initial Public Release
+AOI2List – USGS LiDAR AOI Tile Finder & LAZ Downloader
 
-AOI2List is a tool for locating and downloading USGS LiDAR LAZ tiles using a simple Area of Interest (AOI).  
-This release includes both CLI and GUI tools, plus a packaged macOS application.
+Developer: Bill Fleming (TechBill)
+Contact: billyjackrootbeer (at sign) gmail (dot) com
+Donations:
+https://www.paypal.com/paypalme/techbill
+https://www.buymeacoffee.com/techbill
 
----
+------------------------------------------------------------
 
-## Included in this Release
+Badges:
+Python 3.13
+Platform: Windows | macOS
+License: Custom Non-Commercial
+Release: v1.0.0
 
-### ✔ GUI Features
-- Tile discovery via ScienceBase
-- Tile selection window
-- Multithreaded download engine
-- Progress bar & speed display
-- Cancel + retry logic
-- Save-selected-to-file
+------------------------------------------------------------
 
-### ✔ CLI Features
-- Simple AOI → tile URL list generator
+Overview:
+AOI2List is a cross-platform tool for locating and downloading USGS LiDAR LAZ tiles using a user-defined Area of Interest (AOI).
+It includes both a command-line interface (CLI) and a graphical interface (GUI) with tile selection, filtering, and a multithreaded download engine.
+AOI2List now provides native executables for both Windows and macOS.
 
-### ✔ macOS App
-- Custom icon  
-- Metadata bundle (version, author, identifier)  
-- Fast startup  
+------------------------------------------------------------
 
-### ✔ Project Files
-- `src/` Python scripts  
-- `assets/` icons and image files  
-- `AOI2List.spec` build metadata  
-- Custom non-commercial license  
-- Documentation and README  
+Features:
+- AOI-based search for USGS LiDAR LAZ tiles
+- CLI (aoi2list.py) and GUI (aoi2list_gui.py)
+- Tile sorting and metadata extraction
+- Tile selection interface in GUI
+- Save selected URLs to file
+- Multithreaded downloader with:
+    * Progress bar
+    * Download speed
+    * Retry logic
+    * Cancel button
+- Native Windows .exe build (standalone)
+- macOS .app bundle with custom icon
+- Cross-platform Python source included
+- Requires only Python + Tkinter when running from source
 
----
+------------------------------------------------------------
 
-## Download
+Project Structure:
+src/
+    aoi2list.py
+    aoi2list_gui.py
+assets/
+    AOI2List.ico
+    AOI2List.icns
+    icon_preview.png
+requirements.txt
+LICENSE
+README.md
 
-👉 https://github.com/TechBill/AOI2List/releases/download/v1.0.0/AOI2List-macOS-v1.0.0.zip
+------------------------------------------------------------
 
-Source code included in this repository.
+Installation (Source Version):
+pip install -r requirements.txt
 
----
+Required dependency:
+requests>=2.0
 
-## macOS Notes
+Tkinter is included with Python on both macOS and Windows.
 
-If macOS shows “unidentified developer” on first run:
+------------------------------------------------------------
 
-1. Right-click the app  
-2. Click **Open**  
-3. Click **Open** again  
+CLI Usage:
+python src/aoi2list.py --lat 37.1 --lon -92.6 --sqmi 6 --out output.txt
 
-This only needs to be done once.
+------------------------------------------------------------
 
----
+GUI Usage:
+python src/aoi2list_gui.py
 
-## License
+------------------------------------------------------------
 
-Free for personal and educational use.  
+Windows Executable Build:
+pyinstaller --onefile --windowed --name AOI2List --icon=assets\AOI2List.ico src\aoi2list_gui.py
+
+Output:
+dist\AOI2List.exe
+
+------------------------------------------------------------
+
+macOS Application Build:
+python3 -m PyInstaller --clean --windowed --icon assets/AOI2List.icns --name AOI2List src/aoi2list_gui.py
+
+Output:
+dist/AOI2List.app
+
+------------------------------------------------------------
+
+License:
+Custom non-commercial license.
+Personal and educational use allowed.
 Commercial use requires permission.
 
-Contact: `billyjackrootbeer (at sign) gmail (dot) com`
+------------------------------------------------------------
 
----
+Support / Contact:
+billyjackrootbeer (at sign) gmail (dot) com
 
-Enjoy using AOI2List!
+If this tool helps you, consider donating:
+https://www.paypal.com/paypalme/techbill
+https://www.buymeacoffee.com/techbill
