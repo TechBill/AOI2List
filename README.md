@@ -141,8 +141,7 @@ See `LICENSE` for full details.
 
 ## Support / Contact
 
-For issues or suggestions:  
-`billyjackrootbeer (at sign) gmail (dot) com`
+
 
 If this tool helps you, consider donating:  
 https://www.paypal.com/paypalme/techbill  
